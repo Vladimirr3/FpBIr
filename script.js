@@ -22,7 +22,7 @@ animtimer = 0
 animframe = 0
 GameOver = false
 // a & b are HTMLElements
-
+white.style.display = "flex"
 
 
 function play(sound) {
@@ -81,9 +81,9 @@ function randomIntFromInterval(min, max) { // min and max included
 function CreatePipe(tops){
     pipes = `
             <div class="twopipes">
-            <div style="--top:`+(tops-120)+`vh;--x:50vh" class="TopPipe"></div>
-            <div style="--top:`+(tops-120)+`vh;--x:58vh;--point:'false'" class="GivePoint"></div>
-            <div style="--top:`+(tops)+`vh;--x:50vh" class="BottomPipe"></div>
+            <div style="--top:`+(tops-120)+`vh;--x:80vh" class="TopPipe"></div>
+            <div style="--top:`+(tops-120)+`vh;--x:88vh;--point:'false'" class="GivePoint"></div>
+            <div style="--top:`+(tops)+`vh;--x:80vh" class="BottomPipe"></div>
     </div>
     `
     globalpipes.innerHTML+=pipes 
@@ -158,7 +158,7 @@ function Update(){
     });
 
     pipetimer++
-    if(pipetimer%400==0){
+    if(pipetimer%580==0){
         CreatePipe(randomIntFromInterval(40,70))
     }
     /*
@@ -179,8 +179,8 @@ function Update(){
     if(birdvelocity<=-1000){
         birdvelocity=-1000
     }
-    if(birdrotation>=90){
-        birdrotation = 90
+    if(birdrotation>=45){
+        birdrotation = 45
     }
     if(birdrotation<=-30){
         birdrotation = -30
@@ -191,7 +191,7 @@ if(GameStarted){
 if(birdposY<=800){
 bird.style.rotate = birdrotation+"deg"
 birdvelocity = birdvelocity-gravity
-birdrotation = birdrotation + 0.6*-(birdvelocity/50)
+birdrotation = birdrotation + 0.6*-(birdvelocity/150)
 birdposY = birdposY-(birdvelocity/250)
 bird.style.left = birdposX+"vw"
 bird.style.top = (birdposY/10)+"vh"
