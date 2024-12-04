@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 </head>
 <body>
     <style>
@@ -178,6 +180,10 @@ to{
     <div id="bg" class="bottom"></div>
     <script src="script.js"></script>
 
-    
+    <script>
+        let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+        tg.requestFullscreen()
+        tg.disableVerticalSwipes()	
+    </script>
 </body>
 </html>
