@@ -129,7 +129,7 @@ function Update(){
             //console.log(pipe.style.getPropertyValue("--x"))
             x= parseFloat(pipe.style.getPropertyValue("--x"))
             //console.log(x)
-            pipe.style.setProperty('--x',  x-0.06+"vh")
+            pipe.style.setProperty('--x',  x-0.105+"vh")
             if(!pipe.classList.contains("GivePoint")){
             if(overlaps(pipe,bird)){
                 reset_animation()
@@ -158,7 +158,7 @@ function Update(){
     });
 
     pipetimer++
-    if(pipetimer%580==0){
+    if(pipetimer%400==0){
         CreatePipe(randomIntFromInterval(40,70))
     }
     /*
@@ -173,7 +173,7 @@ function Update(){
 
     bgpos++
     bg2pos++
-    bg.style.backgroundPositionX =  -(bgpos/15)+"vh" 
+    bg.style.backgroundPositionX =  -(bgpos/10)+"vh" 
     bg2.style.backgroundPositionX =  -(bg2pos/1000)+"vw" 
 
     if(birdvelocity<=-1000){
@@ -191,7 +191,7 @@ if(GameStarted){
 if(birdposY<=800){
 bird.style.rotate = birdrotation+"deg"
 birdvelocity = birdvelocity-gravity
-birdrotation = birdrotation + 0.6*-(birdvelocity/150)
+birdrotation = birdrotation + 2*-(birdvelocity/150)
 birdposY = birdposY-(birdvelocity/250)
 bird.style.left = birdposX+"vw"
 bird.style.top = (birdposY/10)+"vh"
