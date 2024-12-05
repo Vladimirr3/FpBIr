@@ -1,4 +1,5 @@
 const bird = document.getElementById("bird")
+const birdHB = document.getElementById("birdhitbox")
 const body = document.getElementById('body')
 const bg = document.getElementById("bg")
 const bg2 = document.getElementById("bg2")
@@ -131,7 +132,7 @@ function Update(){
             //console.log(x)
             pipe.style.setProperty('--x',  x-0.105+"vh")
             if(!pipe.classList.contains("GivePoint")){
-            if(overlaps(pipe,bird)){
+            if(overlaps(pipe,birdHB)){
                 reset_animation()
                 play("hit.ogg")
                 setTimeout(function(){
@@ -142,7 +143,7 @@ function Update(){
                 white.style.display = "flex"
             }}
             else{
-                if(overlaps(pipe,bird)){
+                if(overlaps(pipe,birdHB)){
                     if(pipe.style.getPropertyValue("--point") != true){
                         points++
                         SetPoint()
@@ -189,12 +190,18 @@ function Update(){
 }
 if(GameStarted){
 if(birdposY<=800){
-bird.style.rotate = birdrotation+"deg"
+
 birdvelocity = birdvelocity-gravity
 birdrotation = birdrotation + 2*-(birdvelocity/150)
 birdposY = birdposY-(birdvelocity/250)
 bird.style.left = birdposX+"vw"
 bird.style.top = (birdposY/10)+"vh"
+bird.style.rotate = birdrotation+"deg"
+
+
+birdHB.style.left = birdposX+"vw"
+birdHB.style.top = (birdposY/10)+"vh"
+
 }
 else{
     reset_animation()
@@ -213,6 +220,9 @@ if(GameStarted==false){
 bird.style.left = birdposX+"vw"
 bird.style.top = (birdposY/10)+"vh"
 bird.style.rotate = birdrotation+"deg"
+birdHB.style.left = birdposX+"vw"
+birdHB.style.top = (birdposY/10)+"vh"
+
 
 bgpos++
 bg2pos++
