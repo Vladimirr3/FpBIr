@@ -135,6 +135,7 @@ function Update(){
             if(overlaps(pipe,birdHB)){
                 reset_animation()
                 play("hit.ogg")
+
                 setTimeout(function(){
                     play("die.ogg")
 
