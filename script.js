@@ -135,11 +135,6 @@ function Update(){
             if(overlaps(pipe,birdHB)){
                 reset_animation()
                 play("hit.ogg")
-                AdController.show().then((result) => {
-
-                }).catch((result) => {
-
-                })
                 setTimeout(function(){
                     play("die.ogg")
 
@@ -210,11 +205,6 @@ birdHB.style.top = (birdposY/10)+"vh"
 }
 else{
     reset_animation()
-    AdController.show().then((result) => {
-
-    }).catch((result) => {
-
-    })
     if(GameOver!=true){
         play("hit.ogg")
         setTimeout(function(){
